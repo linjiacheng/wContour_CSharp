@@ -134,6 +134,7 @@ namespace wContour
                             else
                             {
                                 w = 1 / (Math.Pow(X[j] - SCoords[0, p], 2) + Math.Pow(Y[i] - SCoords[1, p], 2));
+                                w = Math.Pow(w, 2);
                                 aMin = (double)NW[0, 0];
                                 aP = 0;
                                 for (l = 1; l < points; l++)
@@ -165,7 +166,7 @@ namespace wContour
             }
 
             //---- Smooth with 5 points
-            double s = 0.5;
+            double s = 0.1;
             for (i = 1; i < rowNum - 1; i++)
             {
                 for (j = 1; j < colNum - 1; j++)
@@ -227,6 +228,7 @@ namespace wContour
                         else
                         {
                             w = 1 / (Math.Pow(X[j] - SCoords[0, p], 2) + Math.Pow(Y[i] - SCoords[1, p], 2));
+                            w = Math.Pow(w, 2);
                             AllWeights[p] = w;
                             if (NWIdx < points)
                             {
@@ -272,7 +274,7 @@ namespace wContour
             }
 
             //---- Smooth with 5 points
-            double s = 0.5;
+            double s = 0.1;
             for (i = 1; i < rowNum - 1; i++)
             {
                 for (j = 1; j < colNum - 1; j++)
@@ -335,6 +337,7 @@ namespace wContour
                             Math.Pow(Y[i] - SCoords[1, p], 2)) <= radius)
                         {
                             w = 1 / (Math.Pow(X[j] - SCoords[0, p], 2) + Math.Pow(Y[i] - SCoords[1, p], 2));
+                            w = Math.Pow(w, 2);
                             SW = SW + w;
                             SV = SV + SCoords[2, p] * w;
                             vNum += 1;
@@ -352,7 +355,7 @@ namespace wContour
             }
 
             //---- Smooth with 5 points
-            double s = 0.5;
+            double s = 0.1;
             for (i = 1; i < rowNum - 1; i++)
             {
                 for (j = 1; j < colNum - 2; j++)
